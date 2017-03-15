@@ -1,3 +1,17 @@
+Login Form - react test task
+
+1) Clone git then install:
+```
+npm install
+```
+2) Start Mock-Server with (1080 port used):
+```
+npm run server
+```
+3) Start dev server from second console:
+```
+npm start
+```
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
