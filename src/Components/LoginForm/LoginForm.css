@@ -1,0 +1,35 @@
+.LoginForm .LoginForm-Submit {
+	width: 90px;
+	height: 35px;
+	padding: 0;
+	color: rgb(73, 144, 204);
+	border-radius: 20px;
+}
+
+.LoginForm-Cog {
+	font-size: 30px;
+	animation-name: cogwheel;
+    animation-duration: 1200ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+ 
+    z-index: 100;
+}
+
+@keyframes cogwheel {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.LoginForm-success {
+	font-size: 20px;
+}
+.LoginForm-success .LoginForm-Ok {
+	color: green;
+	font-size: 28px;
+	font-weight: bold;
+}
