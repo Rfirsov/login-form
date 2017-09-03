@@ -13,11 +13,9 @@ class App extends Component {
       validationState: null,
       isLoading: false
     };
-
-    this.submitLogin = this.submitLogin.bind(this);
   }
 
-   submitLogin(data) {
+  submitLogin = (data) => {
     this.setState({ isLoading: true, validationState: null });
     fetchData(data)
       .then((data) => {
@@ -25,9 +23,8 @@ class App extends Component {
         data.Auth === 'Logged'
           ? this.setState({ validationState: 'success' })
           : this.setState({ validationState: 'error' });
-      });
+    });
   }
-
 
   render() {
     return (
@@ -38,19 +35,18 @@ class App extends Component {
         onClick={() => this.setState({ loginModalShow: true })}>
         Login
       </Button>
-
       <LoginModal
         title="Login"
         bsSize="small"
         show={this.state.loginModalShow}
-        onHide={() => this.setState({ loginModalShow: false })}>
-        <LoginForm
-          onSubmit={(event) => this.submitLogin(event)}
-          validationState={this.state.validationState}
-          isLoading={this.state.isLoading}
-          />
+        onHide={() => this.setState({ loginModalShow: false })}
+      >
+      <LoginForm
+        onSubmit={(event) => this.submitLogin(event)}
+        validationState={this.state.validationState}
+        isLoading={this.state.isLoading}
+      />
       </LoginModal>
-
       </div>
     );
   }

@@ -10,24 +10,20 @@ class LoginForm extends Component {
 			Password: '',
 			validationState: props.validationState
 		};
-
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-
 	}
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({ validationState: nextProps.validationState });
 	}
 
-	handleChange(event) {
+	handleChange = (event) => {
 		this.setState({
 			[event.target.id]: event.target.value,
 			validationState: null
 		});
 	}
 
-	handleSubmit(event) {
+	handleSubmit = (event) => {
 		event.preventDefault();
 		this.props.onSubmit({
 			Username: this.state.Username,
@@ -36,8 +32,8 @@ class LoginForm extends Component {
 	}
 
 	render() {
-		let isLoading = this.props.isLoading;
-		let validationState = this.state.validationState;
+		let { isLoading } = this.props;
+		let { validationState } = this.state;
 
 		const form = (
 			<Form horizontal className="LoginForm">
@@ -49,18 +45,20 @@ class LoginForm extends Component {
 							type="text"
 							placeholder="Login"
 							value={this.state.login}
-							onChange={this.handleChange} />
+							onChange={this.handleChange} 
+						/>
 					</Col>
 				</FormGroup>
 				<FormGroup
 					controlId="Password"
-					validationState={validationState}>
+				>
 					<Col sm={12}>
 						<FormControl
 							type="password"
 							placeholder="Password"
 							value={this.state.password}
-							onChange={this.handleChange} />
+							onChange={this.handleChange} 
+						/>
 					</Col>
 				</FormGroup>
 				<FormGroup>
@@ -79,7 +77,12 @@ class LoginForm extends Component {
 
 		const success = (
 			<span className="LoginForm-success">
-				<Glyphicon glyph="ok" className="LoginForm-Ok" /> Successful logged</span>
+				<Glyphicon 
+					glyph="ok" 
+					className="LoginForm-Ok" 
+				/>
+				Successful logged
+			</span>
 		);
 
 		return (validationState === 'success' ? success : form);
